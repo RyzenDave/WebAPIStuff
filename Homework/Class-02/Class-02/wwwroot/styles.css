@@ -1,0 +1,25 @@
+﻿ 
+body {
+    font-family: Arial;
+    padding: 20px;
+    background: #f4f4f4;
+}
+
+button {
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+}
+
+input {
+    padding: 8px;
+}
+
+ul {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+ 
