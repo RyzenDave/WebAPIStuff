@@ -99,27 +99,24 @@ namespace MovieManagementApi.Controllers
         {
             try
             {
-                // 1. Find the movie to update
+                
                 var movieDb = StaticDb.Movies.FirstOrDefault(x => x.Id == updateMovieDto.Id);
                 if (movieDb == null)
                 {
                     return NotFound($"Movie with id: {updateMovieDto.Id} was not found");
                 }
-
-                // 2. Validate required fields
+ 
                 if (string.IsNullOrEmpty(updateMovieDto.Title))
                 {
                     return BadRequest("Title is a required field");
                 }
-
-                // 3. Update movie properties
+ 
                 movieDb.Title = updateMovieDto.Title;
                 movieDb.Description = updateMovieDto.Description;
                 movieDb.Year = updateMovieDto.Year;
                 movieDb.Genre = updateMovieDto.Genre;
-
-                // 4. Return success (NoContent is standard for PUT)
-                return NoContent(); // 204 No Content
+                 
+                return NoContent();  
             }
             catch (Exception ex)
             {
@@ -129,8 +126,8 @@ namespace MovieManagementApi.Controllers
         }
         [HttpGet("filter")]
         public IActionResult FilterMovies(
-    [FromQuery] string? genre,   
-    [FromQuery] int? year)
+        [FromQuery] string? genre,   
+        [FromQuery] int? year)
         {
             try
             {
@@ -174,17 +171,16 @@ namespace MovieManagementApi.Controllers
         {
             try
             {
-                // Find the movie
+                
                 var movieDb = StaticDb.Movies.FirstOrDefault(x => x.Id == id);
                 if (movieDb == null)
                 {
                     return NotFound($"Movie with id: {id} was not found");
                 }
-
-                // Remove the movie
+                 
                 StaticDb.Movies.Remove(movieDb);
 
-                // Return success (204 No Content)
+              
                 return NoContent();
             }
             catch (Exception)
